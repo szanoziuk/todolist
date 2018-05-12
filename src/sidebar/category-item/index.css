@@ -1,0 +1,18 @@
+li {
+  margin: 5px;
+}
+
+.link {
+  text-decoration: none;
+  color: #000;
+  border: 2px solid lightgray;
+}
+
+.active {
+  background: blue;
+  color: #fff;
+}
+
+span {
+  padding: 3px 10px;
+}
