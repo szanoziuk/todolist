@@ -5,11 +5,17 @@
 
 .non-active {
   color: gray;
+  margin: 0 5px;
 }
 
-.btn {
-   margin: 0 5px;
+.wrap {
+  display: flex;
+  border: 2px solid lightgray;
+  padding: 5px 0 5px 2px;
 }
-.fas {
-  color: red;
+
+
+.buttons {
+  display: inline-block;
+  margin: 0 0 0 30px;
 }

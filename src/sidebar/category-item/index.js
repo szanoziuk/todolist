@@ -13,7 +13,6 @@ export const CategoryItem = ({ category, categories, selectCatId, todos }) => {
           className="link"
           activeClassName="active"
           onClick={ () => selectCatId(category.id) }
-          exact
           to={`/${category.id}`}
         >
           <span> { category.text } </span>

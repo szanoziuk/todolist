@@ -1,4 +1,6 @@
-import React, {Fragment} from 'react';
+import React from 'react';
+
+import './index.css';
 
 export const EditItem = ({ item, toggleMode, saveText }) => {
   let textField = null;
@@ -11,14 +13,14 @@ export const EditItem = ({ item, toggleMode, saveText }) => {
   }
 
   return(
-    <Fragment>
+    <div className="wrap">
       <input
         type="text"
         defaultValue={ item.text }
         ref={ input => { textField = input; } }>
       </input>
-      <button onClick={ onSave }> Save </button>
-      <button onClick={ toggleMode }> Cancel </button>
-    </Fragment>
+      <button className="btn" onClick={ onSave }> <i class="fas fa-save"></i> </button>
+      <button className="btn" onClick={ toggleMode }> <i class="fas fa-ban"></i> </button>
+    </div>
   );
 }

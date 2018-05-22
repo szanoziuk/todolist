@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react';
+import React, { Component } from 'react';
 import { Modal } from '../../component/modal';
 
 import './index.css';
@@ -24,7 +24,7 @@ export class Item extends Component {
     const { isModalOpen } = this.state;
     const { toggleModal } = this;
      return(
-      <Fragment>
+      <div className="wrap">
         <label className={ item.done ? 'strikethrough' : '' }>
           <input
             type="checkbox"
@@ -33,21 +33,23 @@ export class Item extends Component {
           />
           { item.text }
         </label>
-        <button
-          className={ item.done ? 'non-active' : 'btn' }
-          onClick={ !item.done ? toggleMode : null }
-        > Edit </button>
-        <button
-          className={ item.done ? 'non-active' : 'btn' }
-          onClick={ !item.done ? toggleModal : null }
-        > Delete </button>
+        <div className="buttons">
+          <button
+            className={ item.done ? 'non-active' : 'btn' }
+            onClick={ !item.done ? toggleMode : null }
+            > <i class="fas fa-edit"></i> </button>
+            <button
+              className={ item.done ? 'non-active' : 'btn' }
+              onClick={ !item.done ? toggleModal : null }
+              > <i class="fas fa-trash-alt"></i> </button>
 
-        <Modal
-          isModalOpen={ isModalOpen }
-          toggleModal={ toggleModal }
-          removeItem={ this.removeItem }
-        />
-      </Fragment>
+              <Modal
+                isModalOpen={ isModalOpen }
+                toggleModal={ toggleModal }
+                removeItem={ this.removeItem }
+              />
+        </div>
+      </div>
     );
   }
 }

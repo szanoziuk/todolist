@@ -1,3 +1,11 @@
 .main {
   display: flex;
+  margin: 10px;
+}
+
+
+.App {
+  width: 70%;
+  margin: 0 auto;
+  padding: 10px;
 }

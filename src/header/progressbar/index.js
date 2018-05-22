@@ -1,6 +1,7 @@
 import React from 'react';
-import './index.css';
 import { filter } from 'lodash';
+
+import './index.css';
 
 export const ProgressBar = ({ todos }) => {
   const width = getWidth( todos );
