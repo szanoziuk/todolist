@@ -19,8 +19,8 @@ export const EditItem = ({ item, toggleMode, saveText }) => {
         defaultValue={ item.text }
         ref={ input => { textField = input; } }>
       </input>
-      <button className="btn" onClick={ onSave }> <i class="fas fa-save"></i> </button>
-      <button className="btn" onClick={ toggleMode }> <i class="fas fa-ban"></i> </button>
+      <button className="btn" onClick={ onSave }> <i className="fas fa-save"></i> </button>
+      <button className="btn" onClick={ toggleMode }> <i className="fas fa-ban"></i> </button>
     </div>
   );
 }

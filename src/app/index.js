@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import { Sidebar } from '../sidebar';
 import { Content } from '../content';
 import { Header } from '../header';
-
 import { omit, map } from 'lodash';
-
 import { Switch, Route } from 'react-router-dom';
+import { headerConnector } from '../header/connector';
 
 import './index.css';
+
+const MyHeader = headerConnector( Header );
 
 const todos = {
   1: { id: 1, text: 'Learn React', done: true, categoryId: 1 },
@@ -85,9 +86,10 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Header
+        {/* <Header
           todos={ this.state.todos }
-        />
+        /> */}
+        <MyHeader />
         <div className="main">
           <Sidebar
             categories={ this.state.categories }

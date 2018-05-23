@@ -37,11 +37,11 @@ export class Item extends Component {
           <button
             className={ item.done ? 'non-active' : 'btn' }
             onClick={ !item.done ? toggleMode : null }
-            > <i class="fas fa-edit"></i> </button>
+            > <i className="fas fa-edit"></i> </button>
             <button
               className={ item.done ? 'non-active' : 'btn' }
               onClick={ !item.done ? toggleModal : null }
-              > <i class="fas fa-trash-alt"></i> </button>
+              > <i className="fas fa-trash-alt"></i> </button>
 
               <Modal
                 isModalOpen={ isModalOpen }

@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 import './index.css';
 
 export const CategoryItem = ({ category, categories, selectCatId, todos }) => {
-
+  const qty = filter( todos, el => el.categoryId === category.id ).length;
   return(
       <li>
         <NavLink
@@ -17,9 +17,7 @@ export const CategoryItem = ({ category, categories, selectCatId, todos }) => {
         >
           <span> { category.text } </span>
         </NavLink>
-        {
-          '  (' +  filter( todos, el => el.categoryId === category.id ).length + ')'
-        }
+        { `(${ qty })` }
         {
           <CategoryList
             categories={ categories }
