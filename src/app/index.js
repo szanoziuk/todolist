@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { Sidebar } from '../sidebar';
 import { Content } from '../content';
 import { Header } from '../header';
-import { omit, map } from 'lodash';
-import { Switch, Route } from 'react-router-dom';
+import { omit } from 'lodash';
 import { headerConnector } from '../header/connector';
 
 import './index.css';
@@ -75,20 +74,8 @@ class App extends Component {
   }
 
   render() {
-
-    const extraProps = {
-      todos: this.state.todos,
-      toggleDone: this.toggleDone,
-      saveText: this.saveText,
-      itemDelete: this.itemDelete,
-      addItem: this.addItem,
-    }
-
     return (
       <div className="App">
-        {/* <Header
-          todos={ this.state.todos }
-        /> */}
         <MyHeader />
         <div className="main">
           <Sidebar
@@ -97,18 +84,14 @@ class App extends Component {
             todos={ this.state.todos }
             categoryId={ this.state.selectedCat }
           />
-          <Switch>
-            {
-              map( categories, el => {
-                return(
-                  <Route
-                    key={ el.id }
-                    path={`/:${el.id}`}
-                    render={ props => <Content {...extraProps} {...props} /> }
-                  />
-              )})
-            }
-          </Switch>
+          <Content
+            todos={ this.state.todos }
+            toggleDone={ this.toggleDone }
+            saveText={ this.saveText }
+            itemDelete={ this.itemDelete }
+            addItem={ this.addItem }
+            selectedId={ this.state.selectedCat }
+          />
         </div>
       </div>
     );

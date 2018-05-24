@@ -1,9 +1,14 @@
-import { connect } from 'react-redux';
+import { items } from '../selectors';
+import { createConnectorForSelector } from '../helpers';
+import { createSelector } from 'reselect';
 
-const mapStateToProps = (state) => {
-  return {
-    todos: state.todos.items
-  }
-}
+const contentSelector = createSelector(
+    items,
+    (todos) => ({
+        todos: todos.toJS()
+    })
+);
 
-export const headerConnector = connect(mapStateToProps);
+export const headerConnector = createConnectorForSelector( contentSelector );
+
+// export const headerConnector = connect(mapStateToProps);

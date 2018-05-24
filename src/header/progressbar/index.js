@@ -17,10 +17,10 @@ export const ProgressBar = ({ todos }) => {
 }
 
 function getWidth(obj){
-  const qty = Object.keys( obj ).length;
+  const total = Object.keys( obj ).length;
   const checked = filter( obj, item => item.done ).length;
-  if ( qty ) {
-    return  Math.round((checked/qty)*100) + '%';
+  if ( total ) {
+    return  Math.round((checked/total)*100) + '%';
   }
   return '0%';
 }

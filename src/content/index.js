@@ -5,9 +5,8 @@ import { map, filter } from 'lodash';
 
 import './index.css';
 
-export const Content = ({ todos, toggleDone, saveText, itemDelete, addItem, match }) => {
-  const categoryId = +match.params[1];
-  const filteredTodos = filter( todos, el => el.categoryId === categoryId );
+export const Content = ({ todos, toggleDone, saveText, itemDelete, addItem, selectedId }) => {
+  const filteredTodos = filter( todos, el => el.categoryId === selectedId );
   const children =   map( filteredTodos, item => (
      <TodoItem
       item={ item }

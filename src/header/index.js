@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react';
 import { ProgressBar } from './progressbar';
 
-export const Header = ({ todos }) => {
+export const Header = ( props ) => {
+  const { todos } = props;
   return(
     <Fragment>
       <h1 style={{
