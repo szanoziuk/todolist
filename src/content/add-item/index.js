@@ -1,22 +1,30 @@
 import React from 'react';
 
-export const AddItem = ({ toggleMode, addItem }) => {
+import './index.css'
+
+export const AddItem = ({ toggleMode, addItem, category }) => {
   let textField = null;
 
   const onSave = () => {
     const text = textField.value;
-    addItem(text);
+    addItem({ text, category });
     toggleMode();
   }
 
   return(
-    <div>
+    <div className="add-item-wrapper">
       <input
         type="text"
         ref={ input => { textField = input; } }
       />
-      <button onClick={ onSave }> <i className="fas fa-save"></i> </button>
-      <button onClick={ toggleMode }> <i className="fas fa-ban"></i> </button>
+      <div>
+        <button onClick={ onSave } className="btn">
+          <i className="fas fa-save"></i>
+        </button>
+        <button onClick={ toggleMode } className="btn">
+           <i className="fas fa-ban"></i>
+        </button>
+      </div>
     </div>
   );
 }

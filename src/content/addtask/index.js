@@ -24,7 +24,8 @@ export class  AddTask extends Component {
         { this.state.editMode
           && <AddItem
               toggleMode={ this.toggleMode }
-              addItem={ this.props.addItem}/>
+              category={ this.props.selectedCategory }
+              addItem={ this.props.addItem }/>
         }
       </Fragment>
     )

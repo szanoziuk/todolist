@@ -8,9 +8,9 @@ export const EditItem = ({ item, toggleMode, saveText }) => {
   const onSave = () => {
     const text = textField.value;
     const { id } = item;
-    saveText(id, text);
+    saveText({ id, text });
     toggleMode();
-  }
+  };
 
   return(
     <div className="wrap">
@@ -19,8 +19,12 @@ export const EditItem = ({ item, toggleMode, saveText }) => {
         defaultValue={ item.text }
         ref={ input => { textField = input; } }>
       </input>
-      <button className="btn" onClick={ onSave }> <i className="fas fa-save"></i> </button>
-      <button className="btn" onClick={ toggleMode }> <i className="fas fa-ban"></i> </button>
+      <button className="btn" onClick={ onSave }>
+        <i className="fas fa-save"></i>
+      </button>
+      <button className="btn" onClick={ toggleMode }>
+        <i className="fas fa-ban"></i>
+      </button>
     </div>
   );
-}
+};

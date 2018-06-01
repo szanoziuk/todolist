@@ -4,7 +4,7 @@ import { map, compact, isEmpty } from 'lodash';
 
 import './index.css';
 
-export const CategoryList = ({ categories, parentId, selectCatId, todos }) => {
+export const CategoryList = ({ categories, parentId, selectCatId, todos, categoryId }) => {
   const children = compact(map( categories, category => {
     if ( category.parentId === parentId ) {
       return(
@@ -14,6 +14,7 @@ export const CategoryList = ({ categories, parentId, selectCatId, todos }) => {
           selectCatId={ selectCatId }
           key={ category.id }
           todos={ todos }
+          categoryId={ categoryId }
         />
       )}
   }));

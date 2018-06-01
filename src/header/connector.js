@@ -1,14 +1,4 @@
-import { items } from '../selectors';
+import { percentCompletedItems } from '../selectors/header';
 import { createConnectorForSelector } from '../helpers';
-import { createSelector } from 'reselect';
 
-const contentSelector = createSelector(
-    items,
-    (todos) => ({
-        todos: todos.toJS()
-    })
-);
-
-export const headerConnector = createConnectorForSelector( contentSelector );
-
-// export const headerConnector = connect(mapStateToProps);
+export const headerConnector = createConnectorForSelector( percentCompletedItems );

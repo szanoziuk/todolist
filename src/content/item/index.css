@@ -12,10 +12,9 @@
   display: flex;
   border: 2px solid lightgray;
   padding: 5px 0 5px 2px;
+  min-width: 280px;
 }
 
-
-.buttons {
-  display: inline-block;
-  margin: 0 0 0 30px;
+.text {
+  flex-grow: 5;
 }

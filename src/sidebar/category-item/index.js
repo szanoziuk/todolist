@@ -4,7 +4,7 @@ import { filter } from 'lodash';
 
 import './index.css';
 
-export const CategoryItem = ({ category, categories, selectCatId, todos }) => {
+export const CategoryItem = ({ category, categories, selectCatId, todos, categoryId }) => {
   const qty = filter( todos, el => el.categoryId === category.id ).length;
   return(
       <li>
@@ -20,6 +20,7 @@ export const CategoryItem = ({ category, categories, selectCatId, todos }) => {
             selectCatId={ selectCatId }
             parentId={ category.id }
             todos={ todos }
+            categoryId={ categoryId }
           />
         }
       </li>

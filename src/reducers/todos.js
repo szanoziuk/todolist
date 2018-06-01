@@ -12,10 +12,33 @@ const initialState = Immutable.fromJS({
 
 export const todos = function( state = initialState, action ) {
   const { type, payload } = action;
+
   switch( type ) {
     case constants.TODO_DONE_TOGGLE: {
-      return state.updateIn( [ 'items', `${ payload }`, 'done' ], done => !done );
+      return state.updateIn( ['items', `${ payload }`, 'done'], done => !done );
     }
+
+    case constants.TODO_SAVE: {
+      const { id, text } = payload;
+      return state.updateIn( ['items', `${ id }`, 'text'], () => text );
+    }
+
+    case constants.TODO_ADD: {
+      const { text, category: categoryId } = payload;
+      const id = state.get('items').size + 1;
+      const newTodo = Immutable.fromJS({
+        id,
+        text,
+        done: false,
+        categoryId
+      });
+      return state.update( 'items', value => value.set( `${id}`, newTodo ) );
+    }
+
+    case constants.TODO_DELETE: {
+      return state.deleteIn(['items', `${payload}`]);
+    }
+
     default:
       return state;
   }
