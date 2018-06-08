@@ -1,29 +1,20 @@
-import React, { Component } from 'react';
-import { Sidebar } from '../sidebar';
-import { Content } from '../content';
-import { Header } from '../header';
-import { headerConnector } from '../header/connector';
-import { contentConnector } from '../content/connector';
-import { sidebarConnector } from '../sidebar/connector';
+import React from 'react';
+import { default as Header } from '../containers/header-container';
+import { default as Sidebar } from '../containers/sidebar-container';
+import { default as Todos } from '../containers/todos-container';
 
 import './index.css';
 
-const MyHeader = headerConnector( Header );
-const MySidebar = sidebarConnector( Sidebar );
-const MyContent = contentConnector( Content );
-
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <MyHeader />
-        <div className="main">
-          <MySidebar />
-          <MyContent />
-        </div>
+const App = () => {
+  return (
+    <div className="App">
+      <Header />
+      <div className="main">
+        <Sidebar />
+        <Todos />
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default App;
